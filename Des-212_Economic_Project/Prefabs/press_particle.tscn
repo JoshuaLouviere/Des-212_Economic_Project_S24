@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://c55cks8faivbe"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dy308"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_byjmy"]
+_data = [Vector2(0.00928074, 0.971466), 0.0, 0.0, 0, 0, Vector2(0.763341, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6v0fl"]
+curve = SubResource("Curve_byjmy")
+
+[sub_resource type="Curve" id="Curve_fwprn"]
+max_value = 1024.0
+_data = [Vector2(0, 533.127), 0.0, 7.19437, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ec6m8"]
+curve = SubResource("Curve_fwprn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_krok5"]
+lifetime_randomness = 0.05
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(106.09, 39.955, 0)
+emission_shape_scale = Vector3(21.41, 5.015, 1)
+emission_shape = 3
+emission_box_extents = Vector3(6.62, 1, 1)
+spread = 180.0
+initial_velocity_min = 21.84
+initial_velocity_max = 705.22
+angular_velocity_min = -3.4
+angular_velocity_max = 276.68
+velocity_limit_curve = SubResource("CurveTexture_ec6m8")
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -87.2
+radial_accel_max = 24.45
+scale_min = 0.0
+color = Color(0.662745, 0.866667, 0.839216, 1)
+alpha_curve = SubResource("CurveTexture_6v0fl")
+hue_variation_min = -0.03
+hue_variation_max = 0.03
+
+[sub_resource type="QuadMesh" id="QuadMesh_fk73h"]
+
+[sub_resource type="MeshTexture" id="MeshTexture_pniol"]
+mesh = SubResource("QuadMesh_fk73h")
+image_size = Vector2(15, 15)
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+z_index = 90
+material = SubResource("CanvasItemMaterial_dy308")
+emitting = false
+amount = 128
+process_material = SubResource("ParticleProcessMaterial_krok5")
+texture = SubResource("MeshTexture_pniol")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+trail_lifetime = 0.05

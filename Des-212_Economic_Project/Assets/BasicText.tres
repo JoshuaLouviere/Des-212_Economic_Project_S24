@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bkyrs2v6bxfvb"]
+
+[ext_resource type="FontFile" uid="uid://idgfojspo783" path="res://Assets/Inconsolata-Medium.ttf" id="1_ot2cr"]
+
+[resource]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 26
+Label/fonts/font = ExtResource("1_ot2cr")

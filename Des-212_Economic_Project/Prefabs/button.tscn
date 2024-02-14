@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://lkjhrng6ddto"]
+
+[ext_resource type="Texture2D" uid="uid://c0s3vfxc4d1ls" path="res://Assets/LabelTexture.png" id="1_w0tfu"]
+[ext_resource type="Theme" uid="uid://bajesxp22dwi7" path="res://Assets/Default_Button.tres" id="2_oh18r"]
+
+[node name="Button" type="Control"]
+layout_mode = 3
+anchor_right = 0.217
+anchor_bottom = 0.104
+offset_right = -249.984
+offset_bottom = -67.392
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 251.0
+offset_bottom = 59.0
+texture = ExtResource("1_w0tfu")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Hype" type="Button" parent="."]
+layout_mode = 0
+offset_right = 251.0
+offset_bottom = 59.0
+theme = ExtResource("2_oh18r")
+text = "Buttony
+Buttony
+"
+
+[connection signal="pressed" from="Hype" to="." method="_on_button_pressed"]

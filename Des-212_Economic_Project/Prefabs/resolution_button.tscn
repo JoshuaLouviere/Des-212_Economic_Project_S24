@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxgccfsj8gq2r"]
+
+[ext_resource type="Texture2D" uid="uid://c0s3vfxc4d1ls" path="res://Assets/LabelTexture.png" id="1_23p7o"]
+[ext_resource type="Theme" uid="uid://bajesxp22dwi7" path="res://Assets/Default_Button.tres" id="2_m040f"]
+
+[node name="ResolutionButton" type="NinePatchRect"]
+offset_left = 450.0
+offset_top = 258.0
+offset_right = 725.0
+offset_bottom = 533.0
+texture = ExtResource("1_23p7o")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 276.0
+offset_bottom = 275.0
+theme = ExtResource("2_m040f")
+text = "Omnipotence"

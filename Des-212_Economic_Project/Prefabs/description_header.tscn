@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://br04ppqnb3sid"]
+
+[ext_resource type="Texture2D" uid="uid://b4v2ailbf6j4d" path="res://Assets/ButtonLabelTexture.png" id="1_6ugty"]
+[ext_resource type="FontFile" uid="uid://idgfojspo783" path="res://Assets/Inconsolata-Medium.ttf" id="2_eqgeo"]
+
+[sub_resource type="Theme" id="Theme_adriq"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 37
+Label/fonts/font = ExtResource("2_eqgeo")
+
+[sub_resource type="Gradient" id="Gradient_ilu2k"]
+offsets = PackedFloat32Array(0, 0.94)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vl3qo"]
+gradient = SubResource("Gradient_ilu2k")
+fill = 2
+fill_from = Vector2(0.506098, 0.512195)
+
+[node name="DescriptionHeadeer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 83.0
+texture = ExtResource("1_6ugty")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 83.0
+theme = SubResource("Theme_adriq")
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(577, 45)
+scale = Vector2(26.4219, 2.5)
+color = Color(0.141176, 0.415686, 0.45098, 1)
+texture = SubResource("GradientTexture2D_vl3qo")

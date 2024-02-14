@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://7yeha732687s"]
+
+[ext_resource type="PackedScene" uid="uid://lkjhrng6ddto" path="res://Prefabs/button.tscn" id="1_yldap"]
+[ext_resource type="PackedScene" uid="uid://db1j1bwi5ms35" path="res://Prefabs/label.tscn" id="2_wnr0y"]
+
+[sub_resource type="Gradient" id="Gradient_wktp0"]
+offsets = PackedFloat32Array(0, 0.7)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hev3i"]
+gradient = SubResource("Gradient_wktp0")
+fill = 2
+fill_from = Vector2(0.487805, 0.512195)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Label" parent="." instance=ExtResource("2_wnr0y")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Button" parent="." instance=ExtResource("1_yldap")]
+offset_top = 29.0
+offset_right = 0.0
+offset_bottom = 29.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(119, 42.5)
+scale = Vector2(6.09375, 2.35938)
+color = Color(0.219608, 0.65098, 0.705882, 1)
+texture = SubResource("GradientTexture2D_hev3i")
