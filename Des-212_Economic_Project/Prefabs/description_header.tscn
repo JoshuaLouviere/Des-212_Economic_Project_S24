@@ -5,7 +5,7 @@
 
 [sub_resource type="Theme" id="Theme_adriq"]
 Label/colors/font_color = Color(0, 0, 0, 1)
-Label/font_sizes/font_size = 37
+Label/font_sizes/font_size = 32
 Label/fonts/font = ExtResource("2_eqgeo")
 
 [sub_resource type="Gradient" id="Gradient_ilu2k"]

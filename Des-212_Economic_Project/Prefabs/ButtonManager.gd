@@ -366,20 +366,20 @@ func _process(delta):
 		writeToFile()
 	
 	#=========================================#
-	prices  = [0, shovelPrice, grandpaPrice, fishPrice, polePrice, licensePrice, cardPrice, 0, sWPrice, sFPrice, goatPrice, offerPrice, 0,0,0,0]
+	prices  = [0, shovelPrice, grandpaPrice, fishPrice, polePrice, licensePrice, cardPrice, 0, sWPrice, sFPrice, goatPrice, offerPrice, powerPrice, babyFishPrice, unlockPrice]
 	descriptions = ["Dig up "+str(shovelMultiple)+" yummy yummy worms.",
 	"Upgrade Shovel to get more worms per click.",
 	str(grandpaChance)+"% Chance of getting fishing pole from Grandpa.",
 	"Fish for " + str(fishMultiple) + "fish.",
 	"Upgrade your fishing pole",
-	"Decrease the fish price by 10%", 
+	"Decrease the fish and worm price by 10%", 
 	"50% Chance of getting a library card.",
 	"Gain " + str(knowMultiple) + " knowledge.",
-	"0",
-	"1",
-	"2",
+	"Cut and Study Worms",
+	"Gut and Study Fish",
+	"Ask Goat the Secrets of the Universe.",
 	"Offer Worms and fish to the gods of Zathradez.",
-	"4","5","6"]
+	"Gain "+str(powerMultiple)+" Zathradez Power","Increase your ability to gain power\nby tricking goat wish fish/worm baby","Unlock Omnipotence and truly see\nthe world for the first time"]
 	var buttonsText = [0,
 	"Upgrade Shovel\n(Lvl. "+ str(shovelLevel)+")",
 	"Ask for Fishingpole",
@@ -392,7 +392,7 @@ func _process(delta):
 	"Study Fish",
 	"Talk to The Goat",
 	"Offer Fish and\nWorms to the Gods",
-	0,0,0]
+	"Gain Power", "Give Fish/Worm\nBaby to Goat", "Unlock Omnipotence"]
 	#=========================================#
 	
 	titleText = "Omnipotent"
@@ -402,19 +402,30 @@ func _process(delta):
 		obj.updateText()
 		obj.description = descriptions[i]
 		
+		print(currency[i].size())
 		#fadeOut
-		if (currency[i][0] == "Worms"):
+		if (currency[i].size() == 1 && currency[i][0] == "Worms"):
 			if (worms < prices[i] || prices[i] == -1):
 				obj.button.disabled = true
 			else:
 				obj.button.disabled = false
-		elif (currency[i][0] == "Fish"):
+		elif (currency[i].size() == 1 && currency[i][0] == "Fish"):
 			if (fish < prices[i] || prices[i] == -1):
 				obj.button.disabled = true
 			else:
 				obj.button.disabled = false
-		elif (currency[i][0] == "Knowledge"):
+		elif (currency[i].size() == 1 && currency[i][0] == "Knowledge"):
 			if (knowledge < prices[i] || prices[i] == -1):
+				obj.button.disabled = true
+			else:
+				obj.button.disabled = false
+		elif (currency[i].size() == 1 && currency[i][0] == "Power"):
+			if (power < prices[i] || prices[i] == -1):
+				obj.button.disabled = true
+			else:
+				obj.button.disabled = false
+		elif (currency[i].size() > 1 && currency[i][0] == "Worms" && currency[i][1] == "Fish"):
+			if (worms < prices[i] || fish < babyFishPrice || prices[i] == -1):
 				obj.button.disabled = true
 			else:
 				obj.button.disabled = false
@@ -425,6 +436,8 @@ func _process(delta):
 		if prices[i] != 0:
 			obj.label.text = str(int(prices[i])) + obj.labelText
 			obj.button.text = str(buttonsText[i])
+			if currency[i].size() > 1:
+				obj.label.text += " "+str(babyWormPrice) + " Worms"
 		else:
 			obj.label.text = obj.labelText
 			
