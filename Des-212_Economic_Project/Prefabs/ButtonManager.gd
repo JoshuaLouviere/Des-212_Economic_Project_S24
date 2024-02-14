@@ -93,8 +93,8 @@ var shovelLevel = 1
 # Grandpa variables
 var grandpaChance = 5
 var grandpaHeighten = 10
-var grandpaRise = 1.15
-var grandpaPrice = 50
+@export var grandpaRise = 1.15
+@export var grandpaPrice = 50
 var grandpaActive = true
 #================================= Grandpa Variables ======================#
 #====#
@@ -112,18 +112,18 @@ var wormActive = true
 # Fish variables
 var fish = 0
 var fishMultiple = 30
-var fishPrice = 10
-var fishRise = 1.15
 var fishActive = false
-var polePrice = 30
 var poleLevel = 1
-var cardPrice = 6000
+@export var fishRise = 1.15
+@export var fishPrice = 10
+@export var polePrice = 30
+@export var cardPrice = 6000
 #================================= Fish Variables ======================#
 #====#
 #====#
 #====#
 #================================= Fishing Licence ======================#
-var licensePrice = 2000
+@export var licensePrice = 2000
 #================================= Fishing Licence ======================#
 #====#
 #====#
@@ -138,15 +138,15 @@ var objIndex = 0
 var knowledge = 0
 var knowledgeActive = false
 var knowMultiple = 50
-var sWPrice = 10000
-var sFPrice = 5000
-var goatPrice = 200
+@export var sWPrice = 10000
+@export var sFPrice = 5000
+@export var goatPrice = 200
 #================================= Knowledge Variables ======================#
 #====#
 #====#
 #====#
 #================================= Offer Variables ======================#
-var offerPrice = 100000
+@export var offerPrice = 100000
 #================================= Offer Variables ======================#
 #====#
 #====#
@@ -154,10 +154,12 @@ var offerPrice = 100000
 #================================= Power Variables ======================#
 var power = 0
 var powerActive = false
-var powerPrice = 20000
-var babyFishPrice = 10000
-var babyWormPrice = 10000000
-var unlockPrice = 1000000
+@export var powerMultiple = 10000
+@export var powerPrice = 20000
+@export var powerRise = 1.1
+@export var babyFishPrice = 10000
+@export var babyWormPrice = 10000000
+@export var unlockPrice = 1000000
 var stager = 0
 var stages = [0,0,0,0]
 #================================= Power Variables ======================#
@@ -464,10 +466,10 @@ func writeToFile():
 		print("Wrote To File")
 		var string = ""
 		for button in buttons:
-			string += str(button.id) + " : " + str(button.clicks) + "\n"
+			string += str(button.id) + " , " + str(button.clicks) + "\n"
 		var i = 1
 		for stg in stages:
-			string += "Phase " + str(i) + ": " + str(stg) + "\n"
+			string += "Phase " + str(i) + ", " + str(stg) + "\n"
 			i += 1
 		string += rValues
 		f.store_string(string)
@@ -542,7 +544,7 @@ func studyWorms():
 func gainPower():
 	if (knowledge >= powerPrice && powerActive):
 		knowledge -= powerPrice
-		power += 100000
+		power += powerMultiple
 #================================================================================#
 #====#
 #====#
@@ -559,6 +561,7 @@ func makeBaby():
 		fish -= babyFishPrice
 		babyWormPrice *= 1.3
 		babyFishPrice *= 1.3
+		powerMultiple *= powerRise
 		
 #================================================================================#
 #====#
@@ -655,6 +658,7 @@ func autoRun(delta):
 				if (buttons[i].button.disabled == false):
 					buttons[i].button.emit_signal("pressed")
 				if (clicks >= 100):
+					clicks = 0
 					rValues += "100 Clicks = Worms: " + str(worms) + "; Fish: " + str(fish)  + "; Knowledge: " + str(knowledge)  + "; Power: " + str(power) + "\n"
 				i += 1
 #================================================================================#
