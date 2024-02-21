@@ -301,8 +301,9 @@ func quick():
 	knowledge += 1000000000000
 	worms += 1000000000000
 	fish += 1000000000000
-	print("yesssssssssssssssss")
+	#print("yesssssssssssssssss")
 	get_node("WormRain").emitting = true
+	get_node("WormRain/FishRain").emitting = true
 var f
 #================================================================================#
 #====#
@@ -398,6 +399,12 @@ func headersUpdate():
 #====#
 #====#
 #====#
+func toPercent(number):
+	var num = number * 100
+	var string = str(num)
+	string[0] = ""
+	string += "%"
+	return string
 #================================================#
 #
 #	Function: _process
@@ -416,18 +423,19 @@ func _process(delta):
 	#=========================================#
 	prices  = [0, shovelPrice, grandpaPrice, fishPrice, polePrice, licensePrice, cardPrice, 0, sWPrice, sFPrice, goatPrice, offerPrice, powerPrice, babyFishPrice, unlockPrice]
 	descriptions = ["Dig up "+str(shovelMultiple)+" yummy yummy worms.",
-	"Upgrade Shovel to get more worms per click.",
+	"Upgrade Shovel to get " + toPercent(shovelRise) + " worms per click.",
 	str(grandpaChance)+"% Chance of getting fishing pole from Grandpa.",
 	"Fish for " + str(fishMultiple) + "fish.",
-	"Upgrade your fishing pole",
+	"Upgrade your fishing pole for " + toPercent(fishRise) + "\nmore fish per click.",
 	"Decrease the fish and worm price by 10%", 
 	"50% Chance of getting a library card.",
 	"Gain " + str(knowMultiple) + " knowledge.",
 	"Cut and Study Worms",
 	"Gut and Study Fish",
-	"Ask Goat the Secrets of the Universe.",
+	"Ask Goat the Secrets of the Universe.\nGet " + toPercent(knowRise) + " more knowledge per click.",
 	"Offer Worms and fish to the gods of Zathradez.",
-	"Gain "+str(powerMultiple)+" Zathradez Power","Increase your ability to gain power\nby tricking goat wish fish/worm baby","Unlock Omnipotence and truly see\nthe world for the first time"]
+	"Gain "+str(powerMultiple)+" Zathradez Power",
+	"Trick goat with worm and fish mush baby.\nGet "+toPercent(powerRise)+" more power per click.","Unlock Omnipotence and truly see\nthe world for the first time"]
 	var buttonsText = [0,
 	"Upgrade Shovel\n(Lvl. "+ str(shovelLevel)+")",
 	"Ask for Fishingpole",
@@ -623,6 +631,9 @@ func makeBaby():
 		babyWormPrice *= 1.3
 		babyFishPrice *= 1.3
 		powerMultiple *= powerRise
+		get_node("FishWormBaby").emitting = true
+		print(get_node("FishWormBaby").emitting)
+		print("It should work")
 		
 #================================================================================#
 #====#
