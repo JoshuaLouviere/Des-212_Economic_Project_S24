@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxgccfsj8gq2r"]
+[gd_scene load_steps=5 format=3 uid="uid://bxgccfsj8gq2r"]
 
 [ext_resource type="Texture2D" uid="uid://c0s3vfxc4d1ls" path="res://Assets/LabelTexture.png" id="1_23p7o"]
 [ext_resource type="Theme" uid="uid://bajesxp22dwi7" path="res://Assets/Default_Button.tres" id="2_m040f"]
+
+[sub_resource type="Gradient" id="Gradient_h0thu"]
+offsets = PackedFloat32Array(0, 0.861472)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bfnd3"]
+gradient = SubResource("Gradient_h0thu")
+fill = 2
+fill_from = Vector2(0.504274, 0.465812)
 
 [node name="ResolutionButton" type="NinePatchRect"]
 offset_left = 450.0
@@ -21,3 +30,8 @@ offset_right = 276.0
 offset_bottom = 275.0
 theme = ExtResource("2_m040f")
 text = "Omnipotence"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(133, 139)
+scale = Vector2(5.78125, 5.5)
+texture = SubResource("GradientTexture2D_bfnd3")

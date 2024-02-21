@@ -289,7 +289,7 @@ func quick():
 	worms += 1000000000000
 	fish += 1000000000000
 	print("yesssssssssssssssss")
-
+	get_node("WormRain").emitting = true
 var f
 #================================================================================#
 #====#
@@ -398,9 +398,7 @@ func _process(delta):
 	# autoRunSmart(delta)
 	# autoRunRandom(delta)
 	#==================================== Auto Run ==========================================#
-	
-	if (Input.is_action_just_pressed("Debug")):
-		writeToFile()
+		
 	
 	#=========================================#
 	prices  = [0, shovelPrice, grandpaPrice, fishPrice, polePrice, licensePrice, cardPrice, 0, sWPrice, sFPrice, goatPrice, offerPrice, powerPrice, babyFishPrice, unlockPrice]
@@ -439,7 +437,7 @@ func _process(delta):
 		obj.updateText()
 		obj.description = descriptions[i]
 		
-		print(currency[i].size())
+		#print(currency[i].size())
 		#fadeOut
 		if (currency[i].size() == 1 && currency[i][0] == "Worms"):
 			if (worms < prices[i] || prices[i] == -1):
