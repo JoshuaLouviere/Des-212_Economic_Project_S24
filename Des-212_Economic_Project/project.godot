@@ -14,6 +14,10 @@ config/name="Des 212 - Economic Project"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [input]
 
 Debug={

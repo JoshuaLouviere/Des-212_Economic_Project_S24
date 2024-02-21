@@ -62,7 +62,63 @@ var currency = []
 var headers = []
 
 const priceIncrease = 1.2
+#========================================= Prices ===================================#
+@export_group("Prices")
+@export var shovelPrice = 10
+@export var grandpaPrice = 50
+@export var fishPrice = 10
+@export var polePrice = 30
+@export var cardPrice = 6000
+@export var powerPrice = 20000
+@export var babyFishPrice = 10000
+@export var babyWormPrice = 10000000
+@export var unlockPrice = 1000000
+@export var offerPrice = 100000
+@export var sWPrice = 10000
+@export var sFPrice = 5000
+@export var goatPrice = 200
+@export var licensePrice = 2000
+#==================================================================================#
+#====#
+#====#
+#====#
+#========================================= Rates ===================================#
+@export_group("Rates")
+@export var shovelMultiple = 1
+@export var grandpaHeighten = 10
+@export var fishMultiple = 30
+@export var knowMultiple = 50
+@export var powerMultiple = 10000
+#==================================================================================#
+#====#
+#====#
+#====#
+#========================================= Upgrades ===================================#
+@export_group("Upgrades")
+@export var shovelRise = 1.2
 
+@export var fishRise = 1.15
+@export var knowRise = 1.2
+@export var powerRise = 1.1
+#==================================================================================#
+#====#
+#====#
+#====#
+#========================================= Price Rises ===================================#
+@export_group("Price Rises")
+@export var grandpaPriceRise = 1.15
+@export var sFPriceRise = 1.15
+@export var goatPriceRise = 1.15
+#==================================================================================#
+#====#
+#====#
+#====#
+#====#
+#====#
+#====#
+#====#
+#====#
+#====#
 #==================================================================================#
 # Auto Run Through Variables
 var autoTimer = 0
@@ -82,8 +138,6 @@ var rng = RandomNumberGenerator.new()
 #====#
 #================================= Shovel Variables ======================#
 # Shovel variables
-var shovelPrice = 10
-var shovelMultiple = 1
 var shovelLevel = 1
 #================================= Shovel Variables ======================#
 #====#
@@ -92,9 +146,6 @@ var shovelLevel = 1
 #================================= Grandpa Variables ======================#
 # Grandpa variables
 var grandpaChance = 5
-var grandpaHeighten = 10
-@export var grandpaRise = 1.15
-@export var grandpaPrice = 50
 var grandpaActive = true
 #================================= Grandpa Variables ======================#
 #====#
@@ -111,19 +162,14 @@ var wormActive = true
 #================================= Fish Variables ======================#
 # Fish variables
 var fish = 0
-var fishMultiple = 30
 var fishActive = false
 var poleLevel = 1
-@export var fishRise = 1.15
-@export var fishPrice = 10
-@export var polePrice = 30
-@export var cardPrice = 6000
 #================================= Fish Variables ======================#
 #====#
 #====#
 #====#
 #================================= Fishing Licence ======================#
-@export var licensePrice = 2000
+
 #================================= Fishing Licence ======================#
 #====#
 #====#
@@ -137,16 +183,12 @@ var objIndex = 0
 #================================= Knowledge Variables ======================#
 var knowledge = 0
 var knowledgeActive = false
-var knowMultiple = 50
-@export var sWPrice = 10000
-@export var sFPrice = 5000
-@export var goatPrice = 200
 #================================= Knowledge Variables ======================#
 #====#
 #====#
 #====#
 #================================= Offer Variables ======================#
-@export var offerPrice = 100000
+
 #================================= Offer Variables ======================#
 #====#
 #====#
@@ -154,12 +196,6 @@ var knowMultiple = 50
 #================================= Power Variables ======================#
 var power = 0
 var powerActive = false
-@export var powerMultiple = 10000
-@export var powerPrice = 20000
-@export var powerRise = 1.1
-@export var babyFishPrice = 10000
-@export var babyWormPrice = 10000000
-@export var unlockPrice = 1000000
 var stager = 0
 var stages = [0,0,0,0]
 #================================= Power Variables ======================#
@@ -168,6 +204,7 @@ var stages = [0,0,0,0]
 #====#
 #================================= Resolution Variables ======================#
 var resButton = preload("res://Prefabs/resolution_button.tscn")
+var wormRain = preload("res://Prefabs/worm_rain.tscn")
 #================================= Resolution Variables ======================#
 #====#
 #====#
@@ -619,7 +656,7 @@ func offerFish():
 func studyFish():
 	if (fish >= sFPrice && knowledgeActive):
 		fish -= sFPrice
-		sFPrice *= 1.5
+		sFPrice *= sFPriceRise
 		knowledge += knowMultiple*2.5
 #================================================================================#
 #====#
@@ -634,8 +671,8 @@ func studyFish():
 func talkGoat():
 	if (knowledge >= goatPrice && knowledgeActive):
 		knowledge -= goatPrice
-		goatPrice *= 1.3
-		knowMultiple *= 1.2
+		goatPrice *= goatPriceRise
+		knowMultiple *= knowRise
 #================================================================================#
 #====#
 #====#
@@ -754,7 +791,7 @@ func upgradePole():
 	if (fish >= polePrice && fishActive):
 		fish -= polePrice
 		polePrice *= 1.3
-		fishMultiple *= 1.2
+		fishMultiple *= fishRise
 		fishPrice *= 0.8
 		poleLevel += 1
 	print("upgradePole")
@@ -801,7 +838,7 @@ func upgradeShovel():
 	if (worms >= shovelPrice && wormActive):
 		worms -= shovelPrice
 		shovelPrice *= 1.3
-		shovelMultiple *= 1.2
+		shovelMultiple *= shovelRise
 		shovelLevel += 1
 #================================================================================#
 #====#
@@ -818,7 +855,7 @@ func askGrandpa():
 	
 	if (worms >= grandpaPrice && grandpaActive && grandpaPrice != -1):
 		worms -= grandpaPrice
-		grandpaPrice *= grandpaRise
+		grandpaPrice *= grandpaPriceRise
 		
 		#====== Random Chance ======#
 		var number = rng.randf_range(0,100)
