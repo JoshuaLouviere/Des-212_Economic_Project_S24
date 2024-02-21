@@ -228,7 +228,7 @@ func add_button(named, labelsText="Label", buttonsText="Button", function=testFu
 		but.button = get_node(named + "/Button/Hype")
 		but.label = get_node(named + "/Label/Label")
 		but.button.connect("pressed", function)
-		#but.button.connect("pressd", but.createParticle)
+		but.button.connect("pressed", buttonNeed)
 		but.button.connect("pressed", but.clickAdd)
 		but.button.connect("mouse_entered", but.changeTitle)
 		but.button.connect("mouse_exited", but.titleNormal)
@@ -240,6 +240,19 @@ func add_button(named, labelsText="Label", buttonsText="Button", function=testFu
 	else:
 		print("Failed to Load: " + named)
 		but.queue_free()
+#================================================#
+#
+#	Function: revealStage
+#	Description: Reveal the stage of buttons
+#
+#================================================#
+var bClicks = 0
+func buttonNeed():
+	stages[stager] += 1
+	bClicks += 1
+	if (bClicks >= 100):
+		bClicks = 0
+		rValues += "100 Clicks = Worms: " + str(worms) + "; Fish: " + str(fish)  + "; Knowledge: " + str(knowledge)  + "; Power: " + str(power) + "\n"
 #================================================================================#
 #====#
 #====#
@@ -701,13 +714,8 @@ func autoRun(delta):
 			var i = 0
 			for function in functions:
 				function.call()
-				stages[stager] += 1
-				clicks += 1
 				if (buttons[i].button.disabled == false):
 					buttons[i].button.emit_signal("pressed")
-				if (clicks >= 100):
-					clicks = 0
-					rValues += "100 Clicks = Worms: " + str(worms) + "; Fish: " + str(fish)  + "; Knowledge: " + str(knowledge)  + "; Power: " + str(power) + "\n"
 				i += 1
 #================================================================================#
 #====#

@@ -13,9 +13,9 @@ fill = 2
 fill_from = Vector2(0.504274, 0.465812)
 
 [node name="ResolutionButton" type="NinePatchRect"]
-offset_left = 450.0
+offset_left = 425.0
 offset_top = 258.0
-offset_right = 725.0
+offset_right = 700.0
 offset_bottom = 533.0
 texture = ExtResource("1_23p7o")
 patch_margin_left = 4
