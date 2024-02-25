@@ -10,7 +10,7 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_bfnd3"]
 gradient = SubResource("Gradient_h0thu")
 fill = 2
-fill_from = Vector2(0.504274, 0.465812)
+fill_from = Vector2(0.5, 0.487179)
 
 [node name="ResolutionButton" type="NinePatchRect"]
 offset_left = 425.0

@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3on2dcfwkjqu"]
+
+[ext_resource type="Texture2D" uid="uid://c703uj6da7kdd" path="res://Assets/Worms.png" id="1_ik4w0"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pvmmv"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = -82.3
+initial_velocity_max = 585.82
+angular_velocity_min = -500.0
+angular_velocity_max = 500.0
+radial_velocity_min = -1000.0
+radial_velocity_max = 1000.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.4
+scale_max = 0.5
+
+[node name="WormExplosion" type="GPUParticles2D"]
+emitting = false
+amount = 22
+process_material = SubResource("ParticleProcessMaterial_pvmmv")
+texture = ExtResource("1_ik4w0")
+lifetime = 2.0
+one_shot = true
+speed_scale = 2.61
+explosiveness = 0.31

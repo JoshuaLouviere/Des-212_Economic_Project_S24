@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cej5b6ya36gso"]
+
+[ext_resource type="Script" path="res://FishWormBabyObj.gd" id="1_ljqwt"]
+[ext_resource type="Texture2D" uid="uid://bnhynh6jpptgi" path="res://Assets/FishWormBaby.png" id="2_41ruk"]
+[ext_resource type="PackedScene" uid="uid://b3on2dcfwkjqu" path="res://Prefabs/worm_explosion.tscn" id="3_p746s"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mfvge"]
+radius = 82.6776
+height = 268.196
+
+[node name="FishWormBabyObj" type="CharacterBody2D"]
+position = Vector2(606, 1118)
+script = ExtResource("1_ljqwt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_41ruk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, 2)
+rotation = 0.444774
+shape = SubResource("CapsuleShape2D_mfvge")
+
+[node name="WormExplosion" parent="." instance=ExtResource("3_p746s")]

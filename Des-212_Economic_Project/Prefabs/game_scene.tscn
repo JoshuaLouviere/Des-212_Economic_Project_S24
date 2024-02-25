@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://qad3qlntlhkr"]
+[gd_scene load_steps=10 format=3 uid="uid://qad3qlntlhkr"]
 
 [ext_resource type="PackedScene" uid="uid://7yeha732687s" path="res://Prefabs/CustomButton.tscn" id="1_be20i"]
 [ext_resource type="Script" path="res://Prefabs/ButtonManager.gd" id="1_ktn48"]
@@ -7,7 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://ckwu7inav4toy" path="res://Prefabs/outline.tscn" id="5_aqvi3"]
 [ext_resource type="PackedScene" uid="uid://cw4qp0sr0ty81" path="res://Prefabs/little_button.tscn" id="6_gfvdq"]
 [ext_resource type="PackedScene" uid="uid://cu68hehdh0ebx" path="res://Prefabs/worm_rain.tscn" id="7_7ai5g"]
-[ext_resource type="PackedScene" uid="uid://ccfavfuck7o48" path="res://Prefabs/fish_worm_baby.tscn" id="8_y6cyv"]
+[ext_resource type="PackedScene" uid="uid://cej5b6ya36gso" path="res://Prefabs/fish_worm_baby_obj.tscn" id="8_67lnj"]
+[ext_resource type="PackedScene" uid="uid://b3on2dcfwkjqu" path="res://Prefabs/worm_explosion.tscn" id="9_mhacb"]
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_ktn48")
@@ -116,9 +117,12 @@ blend_mode = 1
 
 [node name="WormRain" parent="." instance=ExtResource("7_7ai5g")]
 
-[node name="FishWormBaby" parent="." instance=ExtResource("8_y6cyv")]
+[node name="FishWormBabyObj" parent="." instance=ExtResource("8_67lnj")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 light_mask = 1023
 visibility_layer = 1023
 position = Vector2(576, 324)
+
+[node name="WormExplosion" parent="." instance=ExtResource("9_mhacb")]
+visibility_layer = 31

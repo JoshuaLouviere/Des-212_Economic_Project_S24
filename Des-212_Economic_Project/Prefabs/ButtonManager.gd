@@ -58,7 +58,7 @@ var descriptions = []
 var titleText = "Omnipotent"
 var stage = []
 var currency = []
-
+var babyTimer = 0
 var headers = []
 
 const priceIncrease = 1.2
@@ -197,7 +197,7 @@ var knowledgeActive = false
 var power = 0
 var powerActive = false
 var stager = 0
-var stages = [0,0,0,0]
+var stages = [0, 0, 0, 0]
 #================================= Power Variables ======================#
 #====#
 #====#
@@ -229,6 +229,7 @@ func add_button(named, labelsText="Label", buttonsText="Button", function=testFu
 		but.label = get_node(named + "/Label/Label")
 		but.button.connect("pressed", function)
 		but.button.connect("pressed", buttonNeed)
+		but.button.connect("pressed", but.createParticle)
 		but.button.connect("pressed", but.clickAdd)
 		but.button.connect("mouse_entered", but.changeTitle)
 		but.button.connect("mouse_exited", but.titleNormal)
@@ -418,7 +419,6 @@ func _process(delta):
 	# autoRunSmart(delta)
 	# autoRunRandom(delta)
 	#==================================== Auto Run ==========================================#
-		
 	
 	#=========================================#
 	prices  = [0, shovelPrice, grandpaPrice, fishPrice, polePrice, licensePrice, cardPrice, 0, sWPrice, sFPrice, goatPrice, offerPrice, powerPrice, babyFishPrice, unlockPrice]
@@ -427,11 +427,11 @@ func _process(delta):
 	str(grandpaChance)+"% Chance of getting fishing pole from Grandpa.",
 	"Fish for " + str(fishMultiple) + "fish.",
 	"Upgrade your fishing pole for " + toPercent(fishRise) + "\nmore fish per click.",
-	"Decrease the fish and worm price by 10%", 
+	"Decrease the fish and worm price by 90%", 
 	"50% Chance of getting a library card.",
 	"Gain " + str(knowMultiple) + " knowledge.",
-	"Cut and Study Worms",
-	"Gut and Study Fish",
+	"Cut and Study Worms for 2 times the normal knowledge.",
+	"Gut and Study Fish for 3 times the normal knowledge.",
 	"Ask Goat the Secrets of the Universe.\nGet " + toPercent(knowRise) + " more knowledge per click.",
 	"Offer Worms and fish to the gods of Zathradez.",
 	"Gain "+str(powerMultiple)+" Zathradez Power",
@@ -501,6 +501,13 @@ func _process(delta):
 			obj.label.text = "Sold Out"
 			
 		i += 1
+	
+	if (babyTimer > 0):
+		babyTimer -= delta
+		titleText = "Shoot baby in " + str(round(babyTimer))
+		
+		if (babyTimer <= 0):
+			get_node("FishWormBabyObj").emit_signal("Jump")
 	
 	headersUpdate()
 	titleUpdate()
@@ -631,8 +638,7 @@ func makeBaby():
 		babyWormPrice *= 1.3
 		babyFishPrice *= 1.3
 		powerMultiple *= powerRise
-		get_node("FishWormBaby").emitting = true
-		print(get_node("FishWormBaby").emitting)
+		babyTimer = 3
 		print("It should work")
 		
 #================================================================================#
