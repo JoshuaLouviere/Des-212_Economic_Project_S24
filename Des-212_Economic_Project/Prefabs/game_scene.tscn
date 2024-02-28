@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://qad3qlntlhkr"]
 
 [ext_resource type="PackedScene" uid="uid://7yeha732687s" path="res://Prefabs/CustomButton.tscn" id="1_be20i"]
-[ext_resource type="Script" path="res://Prefabs/ButtonManager.gd" id="1_ktn48"]
+[ext_resource type="Script" path="res://Scripts/ButtonManager.gd" id="1_ktn48"]
 [ext_resource type="PackedScene" uid="uid://br04ppqnb3sid" path="res://Prefabs/description_header.tscn" id="3_slqay"]
 [ext_resource type="PackedScene" uid="uid://5sstta113f5f" path="res://Prefabs/section_header.tscn" id="4_h84ja"]
 [ext_resource type="PackedScene" uid="uid://ckwu7inav4toy" path="res://Prefabs/outline.tscn" id="5_aqvi3"]

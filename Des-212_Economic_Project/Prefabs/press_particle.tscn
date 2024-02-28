@@ -1,4 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://c55cks8faivbe"]
+[gd_scene load_steps=10 format=3 uid="uid://c55cks8faivbe"]
+
+[ext_resource type="Script" path="res://Scripts/fly_life_span.gd" id="1_vmcm5"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dy308"]
 blend_mode = 1
@@ -57,3 +59,4 @@ lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
 trail_lifetime = 0.05
+script = ExtResource("1_vmcm5")
