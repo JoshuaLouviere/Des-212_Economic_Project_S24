@@ -1,24 +1,29 @@
-WormsButton , 119
-ShovelButton , 32
+WormsButton , 141
+ShovelButton , 41
 GrandpaButton , 0
-FishButton , 112
+FishButton , 129
 FishingPoleButton , 2
 LicenseButton , 0
 LibraryCardButton , 0
-ReadBooksButton , 163
-StudyWormsButton , 1
-StudyFishButton , 9
-GoatButton , 17
+ReadBooksButton , 141
+StudyWormsButton , 2
+StudyFishButton , 10
+GoatButton , 23
 OfferingButton , 0
-PowerButton , 46
-BabyButton , 15
+PowerButton , 13
+BabyButton , 13
 UnlockButton , 0
-Phase 1, 184
-Phase 2, 109
-Phase 3, 117
-Phase 4, 106
-100 Clicks = Worms: 10.04956328125; Fish: 0; Knowledge: 0; Power: 0
-100 Clicks = Worms: 44.4049655585937; Fish: 294.54684375; Knowledge: 0; Power: 0
-100 Clicks = Worms: 8717.19649039217; Fish: 423.871135354333; Knowledge: 145; Power: 0
-100 Clicks = Worms: 13892747.5906576; Fish: 108111.963272303; Knowledge: 40726.5858279155; Power: 0
-100 Clicks = Worms: 12833215.3957009; Fish: 14527.9416801962; Knowledge: 980445.922019029; Power: 524387.9
+Phase 1, 220
+Phase 2, 105
+Phase 3, 119
+Phase 4, 71
+50 Clicks = Worms: 8.5375; Fish: 0; Knowledge: 0; Power: 0
+50 Clicks = Worms: 10.04956328125; Fish: 0; Knowledge: 0; Power: 0
+50 Clicks = Worms: 52.925272109375; Fish: 0; Knowledge: 0; Power: 0
+50 Clicks = Worms: 60.6432468085937; Fish: 0; Knowledge: 0; Power: 0
+50 Clicks = Worms: 57.970140729492; Fish: 1157.00946584917; Knowledge: 0; Power: 0
+50 Clicks = Worms: 125.701406569753; Fish: 297.540526854055; Knowledge: 0; Power: 0
+50 Clicks = Worms: 16703.492224112; Fish: 11684.6562936641; Knowledge: 553.7563125; Power: 0
+50 Clicks = Worms: 1186709.87819263; Fish: 14447.6991240764; Knowledge: 5504.31989140637; Power: 0
+50 Clicks = Worms: 22065215.4238974; Fish: 7844.92368233137; Knowledge: 50177.3600509793; Power: 10000
+50 Clicks = Worms: 725956997.630413; Fish: 78800.5168928688; Knowledge: 3664821.83168026; Power: 651925.882

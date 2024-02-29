@@ -251,9 +251,9 @@ var bClicks = 0
 func buttonNeed():
 	stages[stager] += 1
 	bClicks += 1
-	if (bClicks >= 100):
+	if (bClicks >= 50):
 		bClicks = 0
-		rValues += "100 Clicks = Worms: " + str(worms) + "; Fish: " + str(fish)  + "; Knowledge: " + str(knowledge)  + "; Power: " + str(power) + "\n"
+		rValues += "50 Clicks = Worms: " + str(worms) + "; Fish: " + str(fish)  + "; Knowledge: " + str(knowledge)  + "; Power: " + str(power) + "\n"
 #================================================================================#
 #====#
 #====#
@@ -330,7 +330,7 @@ func _ready():
 	addDetails("LibraryCardButton", " Fish", "Nothing", applyLibrary, 1, ["Fish"])
 	
 	# ===================== Stage 2 ======================== #
-	addDetails("ReadBooksButton", "Nothing", "Read Books", readBooks, 2, ["Nothing"])
+	addDetails("ReadBooksButton", "Nothing", "Fuse Brain", readBooks, 2, ["Nothing"])
 	addDetails("StudyWormsButton", " Worms", "Study Worms", studyWorms, 2, ["Worms"])
 	addDetails("StudyFishButton", " Fish", "Study Fish", studyFish, 2, ["Fish"])
 	addDetails("GoatButton", " Knowledge", "Talk To Goat", talkGoat, 2, ["Knowledge"])
@@ -428,10 +428,10 @@ func _process(delta):
 	"Fish for " + str(fishMultiple) + "fish.",
 	"Upgrade your fishing pole for " + toPercent(fishRise) + "\nmore fish per click.",
 	"Decrease the fish and worm price by 90%", 
-	"50% Chance of getting a library card.",
+	"50% Chance of getting a opening\nyour brain for knowledge.",
 	"Gain " + str(knowMultiple) + " knowledge.",
-	"Cut and Study Worms for 2 times the normal knowledge.",
-	"Gut and Study Fish for 3 times the normal knowledge.",
+	"Fuse worms to brain for 2 times the normal knowledge.",
+	"Fuse Fish to brain for 3 times the normal knowledge.",
 	"Ask Goat the Secrets of the Universe.\nGet " + toPercent(knowRise) + " more knowledge per click.",
 	"Offer Worms and fish to the gods of Zathradez.",
 	"Gain "+str(powerMultiple)+" Zathradez Power",
@@ -442,11 +442,11 @@ func _process(delta):
 	"Fish",
 	"Upgrade Fishingpole\n(Lvl. " + str(poleLevel) + ")",
 	"Bribe Lakekeeper", 
-	"Apply for\nLibrary Card",
+	"Get Lobotomy",
 	0,
-	"Study Worms",
-	"Study Fish",
-	"Talk to The Goat",
+	"Infuse Worms",
+	"Infuse Fish",
+	"Talk to The Goat\nUpgrade Brain",
 	"Offer Fish and\nWorms to the Gods",
 	"Gain Power", "Give Fish/Worm\nBaby to Goat", "Unlock Omnipotence"]
 	#=========================================#
@@ -655,6 +655,7 @@ func unlock():
 	if (power >= unlockPrice && powerActive):
 		power -= unlockPrice
 		hideAllStages()
+		get_node("WormRain").emitting = true;
 #================================================================================#
 #====#
 #====#

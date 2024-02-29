@@ -58,13 +58,13 @@ position = Vector2(296, 452)
 [node name="ReadBooksButton" parent="." instance=ExtResource("1_be20i")]
 position = Vector2(584, 164)
 
-[node name="StudyWormsButton" parent="." instance=ExtResource("1_be20i")]
+[node name="GoatButton" parent="." instance=ExtResource("1_be20i")]
 position = Vector2(584, 260)
 
 [node name="StudyFishButton" parent="." instance=ExtResource("1_be20i")]
 position = Vector2(584, 356)
 
-[node name="GoatButton" parent="." instance=ExtResource("1_be20i")]
+[node name="StudyWormsButton" parent="." instance=ExtResource("1_be20i")]
 position = Vector2(584, 452)
 
 [node name="OfferingButton" parent="." instance=ExtResource("1_be20i")]
