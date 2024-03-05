@@ -1,0 +1,29 @@
+WormsButton , 155
+ShovelButton , 32
+GrandpaButton , 0
+FishButton , 127
+FishingPoleButton , 2
+LicenseButton , 0
+LibraryCardButton , 0
+ReadBooksButton , 155
+StudyWormsButton , 1
+StudyFishButton , 14
+GoatButton , 24
+OfferingButton , 0
+PowerButton , 15
+BabyButton , 9
+UnlockButton , 0
+Phase 1, 220
+Phase 2, 125
+Phase 3, 111
+Phase 4, 78
+50 Clicks = Worms: 8.5375; Fish: 0; Knowledge: 0; Power: 0
+50 Clicks = Worms: 10.04956328125; Fish: 0; Knowledge: 0; Power: 0
+50 Clicks = Worms: 52.925272109375; Fish: 0; Knowledge: 0; Power: 0
+50 Clicks = Worms: 60.6432468085937; Fish: 0; Knowledge: 0; Power: 0
+50 Clicks = Worms: 57.970140729492; Fish: 1157.00946584917; Knowledge: 0; Power: 0
+50 Clicks = Worms: 4.27573204924262; Fish: 324.084325436617; Knowledge: 0; Power: 0
+50 Clicks = Worms: 725.932389174477; Fish: 2597.75229303667; Knowledge: 145; Power: 0
+50 Clicks = Worms: 70857.2832564286; Fish: 52723.6558341853; Knowledge: 774.41777881256; Power: 0
+50 Clicks = Worms: 6152020.27194891; Fish: 74550.9170138099; Knowledge: 76297.2139042817; Power: 0
+50 Clicks = Worms: 57464889.0292486; Fish: 45261.4360606498; Knowledge: 1779086.83613701; Power: 384074.36

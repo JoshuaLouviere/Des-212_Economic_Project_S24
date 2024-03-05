@@ -198,6 +198,8 @@ var power = 0
 var powerActive = false
 var stager = 0
 var stages = [0, 0, 0, 0]
+@export_group("Debug")
+@export var debugging = true
 #================================= Power Variables ======================#
 #====#
 #====#
@@ -289,7 +291,8 @@ func hideAllStages():
 	autoMode = "Off"
 	autoActive = false
 	print("Auto Off")
-	writeToFile()
+	if (debugging):
+		writeToFile()
 	var instance = resButton.instantiate()
 	instance.get_child(0).connect("pressed", quick)
 	add_sibling(instance)
@@ -341,7 +344,8 @@ func _ready():
 	addDetails("BabyButton", " Fish", "Give Fish\nWorm Baby to Goat", makeBaby, 3, ["Worms", "Fish"])
 	addDetails("UnlockButton", " Power", "Unlock Omnipotence", unlock, 3, ["Power"])
 	
-	f = FileAccess.open("res://Data.txt", FileAccess.WRITE)
+	if (debugging):
+		f = FileAccess.open("res://Data.txt", FileAccess.WRITE)
 	
 	var i = 0
 	for id in namesLoad:
@@ -425,9 +429,9 @@ func _process(delta):
 	descriptions = ["Dig up "+str(shovelMultiple)+" yummy yummy worms.",
 	"Upgrade Shovel to get " + toPercent(shovelRise) + " worms per click.",
 	str(grandpaChance)+"% Chance of getting fishing pole from Grandpa.",
-	"Fish for " + str(fishMultiple) + "fish.",
+	"Fish for " + str(fishMultiple) + " fish.",
 	"Upgrade your fishing pole for " + toPercent(fishRise) + "\nmore fish per click.",
-	"Decrease the fish and worm price by 90%", 
+	"Decrease the fish and worm price by 50%", 
 	"50% Chance of getting a opening\nyour brain for knowledge.",
 	"Gain " + str(knowMultiple) + " knowledge.",
 	"Fuse worms to brain for 2 times the normal knowledge.",
@@ -446,9 +450,9 @@ func _process(delta):
 	0,
 	"Infuse Worms",
 	"Infuse Fish",
-	"Talk to The Goat\nUpgrade Brain",
+	"Talk to The Goat\nUpgrade Brain Fuser",
 	"Offer Fish and\nWorms to the Gods",
-	"Gain Power", "Give Fish/Worm\nBaby to Goat", "Unlock Omnipotence"]
+	"Gain Power", "Make fish/worm baby\nUpgrade Power Gain ", "Unlock Omnipotence"]
 	#=========================================#
 	
 	titleText = "Omnipotent"
@@ -524,8 +528,8 @@ func _process(delta):
 func buyLicense():
 	if (fish >= licensePrice):
 		fish -= licensePrice
-		fishPrice *= 0.1
-		shovelPrice *= 0.1
+		fishPrice *= 0.5
+		shovelPrice *= 0.5
 		licensePrice *= 1.5
 #================================================================================#
 #====#
